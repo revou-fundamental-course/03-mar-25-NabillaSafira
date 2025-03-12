@@ -29,13 +29,29 @@
     <main>
         <!-- Home content -->
         <section id="home">
-            <header>
-                <h1>Hi user, Wellcome To My Portofolio</h1>
-                <p>here you can see my profile, acchievementm and message us</p>
+        <div class="container">    
+            <header class="welcome_message">
+                <h1 id="greeting"></h1>
+                <p> I'm on a journey of learning and improving, and this portfolio is a part of it. 
+                    Every experience teaches me something new. Hope you enjoy exploring!</p>
             </header>
 
             <!-- Banner Auto Slide  -->
-             <div class="banner-img"></div>
+             <div class="banner-img">
+                <div class="slide">
+                    <img src="assets/gambar1.jpeg" alt="Gambar 1">
+                </div>
+                <div class="slide">
+                    <img src="assets/gambar2.jpeg" alt="Gambar 2">
+                </div>
+                <div class="slide">
+                    <img src="assets/gambar3.jpeg" alt="Gambar 3">
+                </div>
+                <div class="slide">
+                    <img src="assets/gambar4.jpeg" alt="Gambar 4">
+                </div>
+             </div>
+        </div> 
         </section>
 
         <hr />
@@ -48,7 +64,7 @@
            
                <!-- our profile content -->
                <div class="our-profile-content">
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend turpis vel lacus finibus, ac convallis neque semper. Aliquam accumsan ultrices risus, quis sodales elit feugiat et. Vivamus tincidunt massa in lacus efficitur fringilla. Aenean tincidunt, enim quis bibendum suscipit, urna neque eleifend eros, in pellentesque erat mi non arcu. Cras condimentum leo eget mi venenatis, sed fermentum eros ultrices. Quisque et luctus mi, eu porttitor diam. In hac habitasse platea dictumst. </p>
+                   <p></p>
                </div>
            </section>
 
@@ -72,7 +88,33 @@
         
             <!-- message-us-content -->
             <div class="message-us-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend turpis vel lacus finibus, ac convallis neque semper. Aliquam accumsan ultrices risus, quis sodales elit feugiat et. Vivamus tincidunt massa in lacus efficitur fringilla. Aenean tincidunt, enim quis bibendum suscipit, urna neque eleifend eros, in pellentesque erat mi non arcu. Cras condimentum leo eget mi venenatis, sed fermentum eros ultrices. Quisque et luctus mi, eu porttitor diam. In hac habitasse platea dictumst. </p>
+                <form name="message-us" onsubmit="return validationForm()">
+                    Nama : <input placeholder="Nama" type="text" name="full-name"/>
+                    <br />
+
+                    Tanggal Lahir :
+                    <input type="date" name="birth-date" />
+                    <br />
+
+                    Jenis Kelamin :
+                    <input type="radio" id="male" name="gender" value="male"/>
+                    <label for="male">Laki-Laki</label>
+                    <input type="radio" id="female" name="gender" value="female"/>
+                    <label for="female">Perempuan</label>
+                    <br />
+
+                    Pesan :
+                    <textarea placeholder="Pesan" name="messages"></textarea>
+                    <br />
+
+                    <input type="submit" value="submit"/>
+                </form>
+            </div>
+            <div id="formResult">
+                <p>Nama: <span id="sender-full-name"></span></p>
+                <p>Tanggal Lahir: <span id="sender-birth-date"></span></p>
+                <p>Jenis Kelamin: <span id="sender-gender"></span></p>
+                <p>Pesan: <span id="sender-messages"></span></p>            
             </div>
         </section>
     </main>
@@ -81,6 +123,6 @@
     <footer>
         <p>&copy; 2025 Portofolio Nabilla</p>
     </footer>
-    
+    <script src="js/script.js"></script>
 </body>
 </html>
