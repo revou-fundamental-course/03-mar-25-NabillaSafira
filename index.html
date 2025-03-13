@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- for responsive purpose -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nabilla's Portofolio</title>
-
-     <!-- CSS -->
-     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Main Header -->
     <header class="main-header">
-         <!-- Logo Website -->
          <div class="main-logo"></div>
-         <!-- Navigation -->
          <nav>
             <a href="#home">Home</a>
             <a href="#our-profile">Our Profile</a>
@@ -28,101 +23,90 @@
     <!-- Main Content -->
     <main>
         <!-- Home content -->
-        <section id="home">
-        <div class="container">    
+        <section id="home">  
             <header class="welcome_message">
                 <h1 id="greeting"></h1>
                 <p> I'm on a journey of learning and improving, and this portfolio is a part of it. 
                     Every experience teaches me something new. Hope you enjoy exploring!</p>
             </header>
 
-            <!-- Banner Auto Slide  -->
-             <div class="banner-img">
-                <div class="slide">
-                    <img src="assets/gambar1.jpeg" alt="Gambar 1">
-                </div>
-                <div class="slide">
-                    <img src="assets/gambar2.jpeg" alt="Gambar 2">
-                </div>
-                <div class="slide">
-                    <img src="assets/gambar3.jpeg" alt="Gambar 3">
-                </div>
-                <div class="slide">
-                    <img src="assets/gambar4.jpeg" alt="Gambar 4">
-                </div>
-             </div>
-        </div> 
+            <div class="banner-img banner-1"></div>
+            <div class="banner-img banner-2"></div>
+            <div class="banner-img banner-3"></div>
+            <div class="banner-img banner-4"></div>
+            <button onclick="nextBanner()">Next</button>
         </section>
 
         <hr />
 
-           <!-- Our Profile content -->
-           <section id="our-profile">
-               <header>
-                   <h1>Our Profile</h1>
-               </header>
-           
-               <!-- our profile content -->
-               <div class="our-profile-content">
-                   <p></p>
-               </div>
-           </section>
+        <!-- Our Profile -->
+        <section id="our-profile">
+            <header>
+                <h1>Our Profile</h1>
+            </header>
+            <div class="our-profile-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo autem corrupti nihil, illum ex voluptatem, corporis tenetur aliquam possimus qui, sit et. Mollitia dolores labore sapiente repellendus odio, doloribus pariatur.</p>
+            </div>
+        </section>
 
-        <!-- Achievement content -->
+        <!-- Achievement -->
         <section id="achievement">
             <header>
                 <h1>Achievement</h1>
             </header>
-        
-            <!-- achievement-content -->
             <div class="achievement-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend turpis vel lacus finibus, ac convallis neque semper. Aliquam accumsan ultrices risus, quis sodales elit feugiat et. Vivamus tincidunt massa in lacus efficitur fringilla. Aenean tincidunt, enim quis bibendum suscipit, urna neque eleifend eros, in pellentesque erat mi non arcu. Cras condimentum leo eget mi venenatis, sed fermentum eros ultrices. Quisque et luctus mi, eu porttitor diam. In hac habitasse platea dictumst. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend turpis vel lacus finibus, ac convallis neque semper.</p>
             </div>
         </section>
     
-        <!-- Message Us content  -->
+        <!-- Message Us -->
         <section id="message-us">
             <header>
                 <h1>Message Us</h1>
             </header>
         
-            <!-- message-us-content -->
             <div class="message-us-content">
-                <form name="message-us" onsubmit="return validationForm()">
-                    Nama : <input placeholder="Nama" type="text" name="full-name"/>
+                <form name="message-us" onsubmit="validateForm(event);">
+                    <label for="name-input">Name :</label>
+                    <input type="text" id="name-input" name="name" placeholder="Your Name" required>
                     <br />
-
-                    Tanggal Lahir :
-                    <input type="date" name="birth-date" />
+            
+                    <label for="birth-input">Tanggal Lahir :</label>
+                    <input type="date" id="birth-input" name="birthDate" required>
                     <br />
-
-                    Jenis Kelamin :
-                    <input type="radio" id="male" name="gender" value="male"/>
+            
                     <label for="male">Laki-Laki</label>
-                    <input type="radio" id="female" name="gender" value="female"/>
+                    <input type="radio" id="male" name="gender" value="Laki-Laki" required>
+            
                     <label for="female">Perempuan</label>
+                    <input type="radio" id="female" name="gender" value="Perempuan" required>
                     <br />
-
-                    Pesan :
-                    <textarea placeholder="Pesan" name="messages"></textarea>
+            
+                    <textarea name="messages" placeholder="Pesan" required></textarea>
                     <br />
-
-                    <input type="submit" value="submit"/>
+            
+                    <button type="submit">Submit</button>   
                 </form>
             </div>
+            
+            <!-- Hasil Form -->
             <div id="formResult">
-                <p>Nama: <span id="sender-full-name"></span></p>
-                <p>Tanggal Lahir: <span id="sender-birth-date"></span></p>
-                <p>Jenis Kelamin: <span id="sender-gender"></span></p>
-                <p>Pesan: <span id="sender-messages"></span></p>            
+                <p>Nama: <span id="name-input-result"></span></p>
+                <p>Tanggal Lahir: <span id="birth-input-result"></span></p>
+                <p>Jenis Kelamin: <span id="gender-input-result"></span></p>
+                <p>Pesan: <span id="messages-result"></span></p>            
             </div>
+            
         </section>
     </main>
 
-    <!-- Main Footer -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Portofolio Nabilla</p>
     </footer>
+
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>
+

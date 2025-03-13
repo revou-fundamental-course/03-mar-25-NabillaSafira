@@ -1,47 +1,70 @@
-// pesan selamat datang
-document.addEventListener("DOMContentLoaded", function() {
-    let name = prompt("please input your name", "").trim();
-    console.log(name);
-    if (name) {
-        document.getElementById("greeting").innerText = "Hai " + name +","+"Welcome To My Portofolio!";      
-    }
-});
-//slide show
-let slideIndex = 0;
-function showSlides() {
-    let slides = document.querySelectorAll(".slide");
+console.log('java script is working!');
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+// Greeting
+let userName = prompt("Please input your name", "").trim();
+console.log("Nama yang dimasukkan:", userName);
 
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000);
+if (userName) {
+    document.getElementById("greeting").innerText = "Hai " + userName + ", Welcome To My Portfolio!";
 }
-document.addEventListener("DOMContentLoaded", showSlides);
 
-//message us
-function validationForm(){
-    const name = document["message-us"]["full-name"].value;
-    const birthDate = document["message-us"]["birth-date"].value;
-    const gender = document["message-us"]["gender"].value;
-    const messages = document["message-us"]["messages"].value;
+// Function to validate form
+function validateForm(event) {
+    event.preventDefault(); // Mencegah refresh halaman
 
-    if (name == "" || birthDate == ""|| gender == "" || messages == ""){
-            alert("Tidak Boleh Ada Yang Kosong");
-            return false;
+    const name = document.forms["message-us"]["name"].value;
+    const birthDate = document.forms["message-us"]["birthDate"].value;
+    const genderElement = document.forms["message-us"]["gender"]; 
+    const messages = document.forms["message-us"]["messages"].value;
+
+    let gender = "";
+    for (let i = 0; i < genderElement.length; i++) {
+        if (genderElement[i].checked) {
+            gender = genderElement[i].value;
+            break;
+        }
     }
+
+    if (name === "" || birthDate === "" || gender === "" || messages === "") {
+        alert("Tidak Boleh Ada Yang Kosong");
+        return;
+    }
+
     setSenderUI(name, birthDate, gender, messages);
-    function setSenderUI(name, birthDate, gender, messages) {
-        document.getElementById("sender-full-name").innerText = name;
-        document.getElementById("sender-birth-date").innerText = birthDate;
-        document.getElementById("sender-gender").innerText = gender;
-        document.getElementById("sender-messages").innerText = messages;
-    }    
-    return false;
-
 }
 
+// Function to set UI after form submission
+function setSenderUI(name, birthDate, gender, messages) {
+    document.getElementById("name-input-result").innerText = name;
+    document.getElementById("birth-input-result").innerText = birthDate;
+    document.getElementById("gender-input-result").innerText = gender;
+    document.getElementById("messages-result").innerText = messages;
+}
+
+let bannerIndex = 0;
+showBanner();
+
+// Function to change banner
+function nextBanner(){
+    bannerIndex += 1;
+    showBanner();
+}
+
+// Function to show banner
+function showBanner(){
+    const banners = document.getElementsByClassName('banner-img');
+    console.log(banners);
+
+    if (bannerIndex >= banners.length){
+        bannerIndex = 0;
+    }
+
+    for (let i = 0; i < banners.length; i++){
+        banners[i].style.display = 'none';
+    }
+    
+    banners[bannerIndex].style.display = 'block';  
+}
+
+// Set interval to change banner
+setInterval(nextBanner, 3000);
